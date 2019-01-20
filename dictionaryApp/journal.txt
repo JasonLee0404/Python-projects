@@ -1,0 +1,79 @@
+#data.json contains data of a real dictionary
+#what we do in this script is we load in the data from data.json file, and then 
+#we read the input from the user, and then if the input is in the dictionary, we 
+#return the definition in it, otherwise we inform the user
+
+
+
+import json
+data = json.load(open("data.json"))
+
+
+def translate(word_arg):
+
+	#trace the dictionary using the key 'word_arg'
+
+	#if the word is inside the dictionary we have
+	if word_arg in data:
+		return data[word_arg]
+	else:
+		return "The word does not exist. Please double check it"
+
+
+
+#get input from the user
+word = input("Enter word: ")
+
+
+
+
+
+print(translate(word))
+
+
+====================================================================================
+
+//At this point, we want to implement case sensitivity
+
+
+
+#data.json contains data of a real dictionary
+#what we do in this script is we load in the data from data.json file, and then 
+#we read the input from the user, and then if the input is in the dictionary, we 
+#return the definition in it, otherwise we inform the user
+
+
+
+import json
+data = json.load(open("data.json"))
+
+
+def translate(word_arg):
+
+	word_arg = word_arg.lower();
+
+	#trace the dictionary using the key 'word_arg'
+
+	#if the word is inside the dictionary we have
+	if word_arg in data:
+		return data[word_arg]
+	else:
+		return "The word does not exist. Please double check it"
+
+
+
+#get input from the user
+word = input("Enter word: ")
+
+
+
+
+
+print(translate(word))
+
+
+============================================================================================
+
+//Now we want to take into consideration that the user missed something
+//and we want to care about similarity ratio
+
