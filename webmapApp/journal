@@ -1,0 +1,67 @@
+The webmap is created with Python and Folium
+The map has 3 layers 
+
+Base
+
+Population, countries
+
+Dots / borders
+
+Pop up windows
+
+pip is the python package manager
+npm is node package manager
+
+'pip install folium' to install folium library
+
+============================================================
+
+import foilum
+
+map = folium.Map
+
+
+you can type dir(folium) to get the available objects that you
+can call
+
+help(folium.Map) to see what you can pass through
+this map
+
+
+
+========================================================
+
+
+type map
+
+and you'll see that you have a map object, but that object
+is in python, now you have to translate that object
+into JS and HTML code
+
+map.save("Map1.html")
+
+
+====================================================================
+//Adding multiple points 
+
+
+#You have to run this script every time you run a new map, to make sure it is up to date
+
+import folium
+
+map = folium.Map(location=[38.59,-99.09], zoom_start=6, tiles="Mapbox Bright")
+
+
+#create a feature group to be more organised
+fg = folium.FeatureGroup(name="My Map")
+
+
+for coordinates in [[38.2,-99.1],[38.2,-97.1]]:
+	fg.add_child(folium.Marker(location=coordinates, popup="Hi I am a Marker", icon=folium.Icon(color='green')))
+
+#this is like adding another layer for better organisation
+
+map.add_child(fg)
+
+map.save("Map1.html")
+
